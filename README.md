@@ -1,6 +1,6 @@
 # 实践课 1 · Pi Agent 安装与使用
 
-实验于 2026 年 11 月 10 日至 11 日在 Windows 上完成。[课程任务说明](https://github.com/hunnuOpenSourceSoftware2026/assignments/blob/main/practice/01-Pi-Agent-start.md)
+实验于 2026 年 11 月 10 日至 11 日在 Windows 上完成，S5 和 S6 于 11 月 26 日补测。[课程任务说明](https://github.com/hunnuOpenSourceSoftware2026/assignments/blob/main/practice/01-Pi-Agent-start.md)
 
 ## 1. 安装并启动 Pi
 
@@ -28,15 +28,19 @@
 
 ![S4 引用 hello.py 后的回复](screenshots/S4.png)
 
-**粘贴图片**。我粘贴了一张数字图，让 Pi 描述它的颜色、形状和数字。回复通过视觉辅助工具识别出两排数字 `1 2 3 4 5` 和 `6 7 8 9 0`，并描述了图中的几何拼贴。
+**粘贴图片**。按 `Alt+V` 后，Pi 把剪贴板里的数字图保存为临时 PNG。补测用 `@` 参数把这张图作为附件发给 `deepseek-flash`，请它描述颜色、形状和数字。模型认出了配色和几何拼贴，把 `0` 归到了上排。对照原图，`0` 在下排最右侧。
 
 ![S5 测试用原图](screenshots/S5-original.png)
 
-![S5 图片识别结果](screenshots/S5.png)
+![S5 按 Alt+V 后 Pi 输入框中的临时图片路径](screenshots/S5-paste.png)
+
+![S5 Pi 会话中的图片附件、提问和实际回复](screenshots/S5.png)
 
 ## 5. 安装并试用插件
 
-我选用 Pi Packages 中的 `pi-web-access`，安装命令是 `pi install npm:pi-web-access`。重新运行 `pi` 后，扩展列表出现了 `pi-web-access:dist`。我让它读取 `example.com`，插件调用成功并返回页面标题 `Example Domain`。
+我选用 Pi Packages 中的 `pi-web-access`。补测时在独立练习目录运行 `pi install npm:pi-web-access@0.47.0 -l --approve`，终端显示安装成功。原实验中重新运行 `pi` 后，扩展列表出现了 `pi-web-access:dist`。调用插件读取 `example.com`，得到页面标题 `Example Domain`。
+
+![S6 插件安装命令和成功输出](screenshots/S6-install.png)
 
 ![S6 插件加载和网页读取结果](screenshots/S6.png)
 
